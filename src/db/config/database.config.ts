@@ -2,7 +2,7 @@ import { DataSourceOptions } from 'typeorm';
 import { ConfigModule } from '@nestjs/config';
 ConfigModule.forRoot();
 import 'dotenv/config';
-import { CartEntity, CartItemEntity } from '../entities';
+import { CartEntity, CartItemEntity, OrderEntity, UserEntity } from '../entities';
 
 const { DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME } = process.env;
 
@@ -19,7 +19,7 @@ export const databaseConfig: DataSourceOptions = {
   username,
   password,
   database,
-  entities: [CartEntity, CartItemEntity],
+  entities: [CartEntity, CartItemEntity, OrderEntity, UserEntity],
   synchronize: false,
   logging: true,
   ssl: {

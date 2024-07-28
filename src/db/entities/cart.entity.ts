@@ -1,6 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
 import { CartStatuses } from '../../cart/models';
 import { CartItemEntity } from './cart-item.entity';
+import { OrderEntity } from './order.entity';
 
 @Entity('carts')
 export class CartEntity extends BaseEntity {
@@ -26,4 +27,7 @@ export class CartEntity extends BaseEntity {
 
   @OneToMany(() => CartItemEntity, (cartItem) => cartItem.cart)
   items: CartItemEntity[];
+
+  @OneToMany(() => OrderEntity, (order) => order.cart)
+  orders: OrderEntity[];
 }

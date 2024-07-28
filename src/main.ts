@@ -33,7 +33,7 @@ bootstrap().then(() => {
 });
 
 export const handler = async (event: any, context: Context, callback: Callback) => {
-  console.log('event: ', event);
+  console.log('+++ event: ', event);
 
   const server = await bootstrap();
   return server(event, context, callback);

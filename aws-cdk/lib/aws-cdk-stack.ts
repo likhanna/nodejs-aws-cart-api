@@ -35,9 +35,14 @@ export class AwsCdkStack extends cdk.Stack {
       timeout: Duration.seconds(5),
     });
 
-    const cartApiIntegration = new LambdaIntegration(cartApiLambda, {
-      proxy: true,
-    });
+    const cartResource = api.root.addResource('cart');
+    const cartApiIntegration = new LambdaIntegration(cartApiLambda);
+    cartResource.addMethod('GET', cartApiIntegration);
+    cartResource.addMethod('PUT', cartApiIntegration);
+    cartResource.addMethod('DELETE', cartApiIntegration);
+
+    const checkoutResource = cartResource.addResource('checkout');
+    checkoutResource.addMethod('POST', cartApiIntegration);
 
     api.root.addProxy({
       defaultIntegration: cartApiIntegration,

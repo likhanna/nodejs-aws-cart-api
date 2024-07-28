@@ -68,3 +68,16 @@ values
     'c653363c-134b-4e02-a1bb-a451262ad180',
     2
   );
+
+insert into users (id, name, password)
+values
+  ('6dd706c7-9879-47fa-8cda-d1e5085fdee7', 'likhanna', 'TEST_PASSWORD'),
+  ('ff5d20b2-27dc-4f04-904c-3440e570784e', 'user2', 'TEST_PASSWORD'),
+  ('cf3382ba-a933-4b4a-8c95-64074ba25a1b', 'user3', 'TEST_PASSWORD'),
+  ('4679e54f-c3e9-44c0-99e5-05a4caf03d66', 'user4', 'TEST_PASSWORD'),
+  ('e5b89f0e-552c-4297-8ff6-c488077274b9', 'user5', 'TEST_PASSWORD');
+
+
+insert into orders (id, user_id, cart_id, payment, delivery, comments, status, total)
+values
+  ('c1a6d6b0-1234-5678-90ab-cdef12345678', '6dd706c7-9879-47fa-8cda-d1e5085fdee7', 'd684b470-3d45-4b50-9828-6e5a1d28c2fd', '{"method": "credit_card", "transaction_id": "txn_1234567890"}', '{"address": "123 Main St", "city": "Anytown", "zipcode": "12345"}', 'Please deliver after 6 PM.', 'PROCESSING', 150.00);
