@@ -1,0 +1,26 @@
+# Ignore docker files
+Dockerfile
+.dockerignore
+
+# Ignore node_modules and logs (handle it in the Dockerfile)
+node_modules
+npm-debug.log
+
+# Ignore aws-cdk & dist folder (handle it in the Dockerfile)
+aws-cdk
+dist
+
+# AWS Elastic Beanstalk config is only needed for cloud delivery
+.elasticbeanstalk/*
+
+# Ignore tests
+**/**/*.spec.ts
+test
+
+# Ignore configs
+.env*
+README.md
+.gitignore
+.eslintrc.js
+.prettierrc
+.git
